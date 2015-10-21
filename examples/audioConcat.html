@@ -1,6 +1,6 @@
 <html>
     <head>
-        <script src="../lib/audioMuxer.js"></script>
+        <script src="../lib/audioConcat.js"></script>
         <script src="../lib/recordVoice.js"></script>
     </head>
     <body>
@@ -14,7 +14,7 @@
                     });
                 })
                 .then(function (blobs) {
-                    var blob = muxAudioBlobs(blobs);
+                    var blob = concatAudioBlobs(blobs);
                     var audioNode = document.getElementById("output");
                     audioNode.src = URL.createObjectURL(blob);
                     audioNode.play();
