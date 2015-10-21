@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <script src="../lib/recordVoice.js"></script>
+    </head>
+    <body>
+        <audio id="output"></audio>
+        <p>Give microphone permissions, sing for a second, and listen to your beautiful voice being played back to you.</p>
+        <script>
+            getVoiceBlobForDuration(1000).then(function (blob) {
+                var audioNode = document.getElementById("output");
+                audioNode.src = URL.createObjectURL(blob);
+                audioNode.play();
+            });
+        </script>
+    </body>
+</html>
