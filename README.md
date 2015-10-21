@@ -8,3 +8,5 @@ Just run:
 ```bash
 npm start
 ```
+
+Then go to http://localhost:8080/webpack-dev-server for a serving of festering hot gravy.
