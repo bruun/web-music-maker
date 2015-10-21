@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <script src="../lib/audioMuxer.js"></script>
+        <script src="../lib/recordVoice.js"></script>
+    </head>
+    <body>
+        <audio id="output"></audio>
+        
+        <script>
+            getVoiceBlobForDuration(200)
+                .then(function (firstBlob) {
+                    return getVoiceBlobForDuration(200).then(function (secondBlob) {
+                        return [firstBlob, secondBlob];
+                    });
+                })
+                .then(function (blobs) {
+                    var blob = muxAudioBlobs(blobs);
+                    var audioNode = document.getElementById("output");
+                    audioNode.src = URL.createObjectURL(blob);
+                    audioNode.play();
+                });
+        </script>
+    </body>
+</html>
